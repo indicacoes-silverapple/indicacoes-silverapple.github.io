@@ -34,6 +34,7 @@
   .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
   .cat-head h3{margin:0;font-size:1.15rem;display:flex;align-items:center;gap:8px}
   .top{font-size:.8rem;color:var(--accent);text-decoration:none;white-space:nowrap}
+  .cupom{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:space-between;font-size:.88rem;border:1.5px dashed #c9a227;background:#fffaf0;color:#6b4e16;border-radius:10px;padding:8px 10px}
   .tagsub{display:inline-block;margin-left:6px;vertical-align:2px;font-size:.72rem;font-weight:600;background:#2f5d50;color:#fff;padding:2px 8px;border-radius:999px}
   h4.sub{margin:16px 0 2px;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent)}
   h4.sub+.pro{border-top:none}
@@ -107,7 +108,7 @@ const CATEGORIAS = [
   {"id": "filtro-de-agua", "titulo": "Filtro de água", "icone": "💧", "itens": [{"nome": "Europa – Filtros", "tel": "(21) 2439-1718", "obs": "Telefone fixo"}]},
   {"id": "impressao-3d", "titulo": "Produtos em impressão 3D", "icone": "🖨️", "itens": [{"nome": "Yuri", "tel": "(21) 99283-6069", "wa": "5521992836069"}]},
   {"id": "ar-condicionado", "titulo": "Ar-condicionado (residencial e automotivo)", "icone": "❄️", "itens": [{"nome": "Demilson", "tel": "(21) 96499-4004", "wa": "5521964994004", "obs": "Manutenção e instalação de split", "sub": "Residencial"}, {"nome": "Vitor Bazani", "tel": "(21) 96760-8488", "wa": "5521967608488", "sub": "Residencial"}, {"nome": "Jorge", "tel": "(21) 96415-6225", "wa": "5521964156225", "sub": "Residencial"}, {"nome": "Luis Carlos", "tel": "(21) 98350-0923", "wa": "5521983500923", "obs": "Vai até você e conserta na garagem", "sub": "Automotivo"}, {"nome": "André", "tel": "(21) 98601-4368", "wa": "5521986014368", "obs": "Perto do Megabox", "sub": "Automotivo"}, {"nome": "Moysés Junior", "tel": "(21) 96422-6305", "wa": "5521964226305", "obs": "Oficina perto do condomínio", "sub": "Automotivo"}, {"nome": "Refri Senna", "obs": "Perto do Uptown, acesso à Freguesia", "sub": "Automotivo"}]},
-  {"id": "pets", "titulo": "Pets", "icone": "🐾", "itens": [{"nome": "Conexão Cão", "site": "https://www.conexaocao.com.br", "insta": "conexaocao", "sub": "Pet shop online", "obs": "Morador do Silver · entrega rápida"}, {"nome": "Cão Paixão", "tel": "(21) 96732-8536", "wa": "5521967328536", "insta": "caopaixaorj", "sub": "Banho e tosa"}, {"nome": "Débora Roggia", "tel": "(21) 99972-2888", "wa": "5521999722888", "sub": "Adestramento"}, {"nome": "Zilah – Focinhos", "tel": "(21) 99741-2161", "wa": "5521997412161", "sub": "Cuidadora de gatos"}]},
+  {"id": "pets", "titulo": "Pets", "icone": "🐾", "itens": [{"nome": "Conexão Cão", "site": "https://www.conexaocao.com.br", "insta": "conexaocao", "sub": "Pet shop online", "obs": "Morador do Silver · entrega rápida", "cupom": "Silver10"}, {"nome": "Cão Paixão", "tel": "(21) 96732-8536", "wa": "5521967328536", "insta": "caopaixaorj", "sub": "Banho e tosa", "cupom": "Silver10"}, {"nome": "Débora Roggia", "tel": "(21) 99972-2888", "wa": "5521999722888", "sub": "Adestramento"}, {"nome": "Zilah – Focinhos", "tel": "(21) 99741-2161", "wa": "5521997412161", "sub": "Cuidadora de gatos"}]},
   {"id": "beleza", "titulo": "Beleza e estética", "icone": "💅", "itens": [{"nome": "Tamires", "tel": "(21) 96904-7059", "wa": "5521969047059", "obs": "Atende em casa · indicada várias vezes", "sub": "Cabeleireiro(a)"}, {"nome": "Cris", "tel": "(21) 99197-6716", "wa": "5521991976716", "obs": "Corte e luzes · atende em casa", "sub": "Cabeleireiro(a)"}, {"nome": "Natany Braga", "tel": "(21) 98416-5658", "wa": "5521984165658", "obs": "Progressiva e corte", "sub": "Cabeleireiro(a)"}, {"nome": "Simone", "tel": "(21) 97018-8230", "wa": "5521970188230", "obs": "Atende em casa", "sub": "Cabeleireiro(a)"}, {"nome": "Juan – Salão Barra Bali", "tel": "(21) 97983-4015", "wa": "5521979834015", "obs": "Escova progressiva · no duplex", "sub": "Cabeleireiro(a)"}, {"nome": "Cida", "tel": "(21) 97717-6487", "wa": "5521977176487", "obs": "Vai em casa", "sub": "Manicure"}, {"nome": "Valesca Meri", "tel": "(21) 98914-4289", "wa": "5521989144289", "obs": "No Barra World", "sub": "Manicure"}, {"nome": "Jade Guimarães", "tel": "(21) 97320-9313", "wa": "5521973209313", "obs": "Também faz tranças", "sub": "Manicure"}, {"nome": "Denise", "tel": "(21) 96745-5352", "wa": "5521967455352", "sub": "Maquiadora"}, {"nome": "Instituto Ketlen", "tel": "(21) 99668-2510", "wa": "5521996682510", "obs": "Limpeza coreana · Centro Israelita, Barra Sul", "sub": "Limpeza de pele"}, {"nome": "Duda Oliveira", "tel": "(21) 99949-4010", "wa": "5521999494010", "obs": "Atende no Novo Leblon", "sub": "Limpeza de pele"}]}
 ];
 
@@ -131,11 +132,12 @@ function render(filtro){
       let c = "";
       if(p.tel) c += `<span class="num">${esc(p.tel)}</span>`;
       if(p.wa)  c += `<a class="btn wa" href="https://wa.me/${p.wa}" target="_blank" rel="noopener">WhatsApp</a>`;
-      if(p.tel) c += `<button class="btn" data-copy="${esc(p.tel)}">Copiar número</button>`;
+      if(p.tel) c += `<button class="btn" data-copy="${esc(p.tel)}" data-label="Copiar número">Copiar número</button>`;
       if(p.site) c += `<a class="btn" href="${esc(p.site)}" target="_blank" rel="noopener">Site</a>`;
       if(p.insta) c += `<a class="btn" href="https://instagram.com/${esc(p.insta)}" target="_blank" rel="noopener">Instagram @${esc(p.insta)}</a>`;
+      const cup = p.cupom ? `<div class="cupom"><span>🎟️ Cupom <strong>${esc(p.cupom)}</strong><br><small>Desconto na primeira compra</small></span><button class="btn" data-copy="${esc(p.cupom)}" data-label="Copiar cupom">Copiar cupom</button></div>` : "";
       if(!c) c = `<span class="nocontact">Contato não informado — pergunte no grupo</span>`;
-      listaHtml += `<div class="pro"><div class="name">${esc(p.nome)}${p.sub?` <span class="tagsub">${esc(p.sub)}</span>`:""}</div>${p.obs?`<span class="note">${esc(p.obs)}</span>`:""}<div class="contacts">${c}</div></div>`;
+      listaHtml += `<div class="pro"><div class="name">${esc(p.nome)}${p.sub?` <span class="tagsub">${esc(p.sub)}</span>`:""}</div>${p.obs?`<span class="note">${esc(p.obs)}</span>`:""}${cup}<div class="contacts">${c}</div></div>`;
     });
     listaHtml += `</section>`;
   });
@@ -151,7 +153,7 @@ document.addEventListener("click", async e => {
   if(!b) return;
   try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copiado ✓"; }
   catch { b.textContent = b.dataset.copy; }
-  setTimeout(()=>{ b.textContent = "Copiar número"; }, 1800);
+  setTimeout(()=>{ b.textContent = b.dataset.label || "Copiar"; }, 1800);
 });
 
 function irParaHash(){
