@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicações Silver/Apple</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f5f2; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e2dc;
+    --accent:#2f5d50; --accent-soft:#e7efec; --warn-bg:#fff6e5; --warn-line:#f0d9a8; --warn-ink:#6b4e16;
+    --wa:#1f9d55;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.45}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+  header h1{font-size:1.9rem;margin:0 0 4px;letter-spacing:-.02em}
+  header p.sub{margin:0 0 18px;color:var(--muted)}
+  .alert{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:12px;padding:14px 16px;font-size:.93rem;margin-bottom:22px}
+  .alert strong{display:block;margin-bottom:4px}
+  .search{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:var(--card);margin-bottom:22px}
+  .search:focus{outline:2px solid var(--accent);border-color:transparent}
+  h2.section-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:34px}
+  .tile{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 12px;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+  .tile:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .tile .ico{font-size:1.4rem;line-height:1}
+  .tile .t{font-weight:600;font-size:.95rem}
+  .tile .n{font-size:.78rem;color:var(--muted)}
+  section.cat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 8px;margin-bottom:16px;scroll-margin-top:16px}
+  section.cat:target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .cat-head h3{margin:0;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .top{font-size:.8rem;color:var(--accent);text-decoration:none;white-space:nowrap}
+  .pro{border-top:1px solid var(--line);padding:12px 0}
+  .pro:first-of-type{border-top:none}
+  .pro .name{font-weight:600}
+  .pro .note{display:inline-block;margin-top:4px;font-size:.8rem;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:999px}
+  .pro .contacts{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .num{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.92rem;margin-right:2px}
+  .btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.83rem;font-weight:600;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer}
+  .btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+  .btn:hover{filter:brightness(.96)}
+  .nocontact{font-size:.85rem;color:var(--muted);font-style:italic}
+  .empty{text-align:center;color:var(--muted);padding:30px 0;display:none}
+  footer{margin-top:30px;font-size:.82rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap" id="inicio">
+  <header>
+    <h1>Indicações Silver/Apple</h1>
+    <p class="sub">Profissionais e serviços indicados pelos moradores</p>
+  </header>
+
+  <div class="alert" role="note">
+    <strong>⚠️ Aviso</strong>
+    Esta página reúne indicações de profissionais feitas no grupo de WhatsApp dos condomínios Silver/Apple. A publicação não assume qualquer responsabilidade pelos serviços prestados ou pelos produtos fornecidos. Trata-se apenas de uma página que organiza as indicações.
+  </div>
+
+  <input class="search" id="busca" type="search" placeholder="Buscar profissional ou serviço…" aria-label="Buscar">
+
+  <h2 class="section-title" id="titulo-categorias">Categorias</h2>
+  <nav class="grid" id="capa"></nav>
+
+  <div id="lista"></div>
+  <p class="empty" id="vazio">Nenhuma indicação encontrada.</p>
+
+  <footer>Quer incluir uma indicação? Envie no grupo do WhatsApp para o administrador.</footer>
+</div>
+
+<script>
+/* ============================================================
+   PARA ATUALIZAR: edite só esta lista.
+   - wa: número com 55 + DDD + número, só dígitos (ex.: "5521999999999")
+   - insta: usuário do Instagram sem @ (opcional)
+   - obs: observação curta (opcional)
+   ============================================================ */
+const CATEGORIAS = [
+  {"id": "ar-condicionado", "titulo": "Ar-condicionado (residencial)", "icone": "❄️", "itens": [{"nome": "Demilson", "tel": "(21) 96499-4004", "wa": "5521964994004", "obs": "Manutenção e instalação de split"}, {"nome": "Vitor Bazani", "tel": "(21) 96760-8488", "wa": "5521967608488"}]},
+  {"id": "ar-condicionado-automotivo", "titulo": "Ar-condicionado automotivo", "icone": "🚗", "itens": [{"nome": "Luis Carlos", "tel": "(21) 98350-0923", "wa": "5521983500923", "obs": "Vai até você e conserta na garagem"}, {"nome": "André", "tel": "(21) 98601-4368", "wa": "5521986014368", "obs": "Perto do Megabox"}, {"nome": "Moysés Junior", "tel": "(21) 96422-6305", "wa": "5521964226305", "obs": "Oficina perto do condomínio"}, {"nome": "Refri Senna", "obs": "Perto do Uptown, acesso à Freguesia"}]},
+  {"id": "cabeleireira", "titulo": "Cabeleireira", "icone": "💇", "itens": [{"nome": "Tamires", "tel": "(21) 96904-7059", "wa": "5521969047059", "obs": "Atende em casa · indicada várias vezes"}, {"nome": "Cris", "tel": "(21) 99197-6716", "wa": "5521991976716", "obs": "Corte e luzes · atende em casa"}, {"nome": "Natany Braga", "tel": "(21) 98416-5658", "wa": "5521984165658", "obs": "Progressiva e corte"}, {"nome": "Simone", "tel": "(21) 97018-8230", "wa": "5521970188230", "obs": "Atende em casa"}, {"nome": "Juan – Salão Barra Bali", "tel": "(21) 97983-4015", "wa": "5521979834015", "obs": "Escova progressiva · no duplex"}]},
+  {"id": "cuidadora-de-gatos", "titulo": "Cuidadora de gatos", "icone": "🐈", "itens": [{"nome": "Zilah – Focinhos", "tel": "(21) 99741-2161", "wa": "5521997412161"}]},
+  {"id": "cuidadora-de-idosos", "titulo": "Cuidadora de idosos", "icone": "🤝", "itens": [{"nome": "Rafaela", "tel": "(21) 98499-3268", "wa": "5521984993268", "obs": "Enfermeira"}]},
+  {"id": "dedetizacao", "titulo": "Dedetização", "icone": "🐜", "itens": [{"nome": "Masterinset", "tel": "(21) 98476-9117", "wa": "5521984769117", "obs": "Outro número: (21) 98712-7961"}, {"nome": "Dionísio", "tel": "(21) 97007-6283", "wa": "5521970076283"}]},
+  {"id": "dentista", "titulo": "Dentista", "icone": "🦷", "itens": [{"nome": "Priscilla Gonzalez", "tel": "(21) 99909-5653", "wa": "5521999095653", "obs": "Aceita Amil e particular · moradora do Silver"}]},
+  {"id": "diarista", "titulo": "Diarista", "icone": "🧹", "itens": [{"nome": "Luísa", "tel": "(21) 97281-1814", "wa": "5521972811814"}]},
+  {"id": "doces", "titulo": "Doces para festa", "icone": "🧁", "itens": [{"nome": "Rei Camila Doces", "tel": "(21) 99994-7816", "wa": "5521999947816", "obs": "Mais de 50 sabores", "site": "https://www.reicamila.com"}, {"nome": "Larissa – Doce Blue", "tel": "(21) 97654-9889", "wa": "5521976549889"}]},
+  {"id": "faz-tudo", "titulo": "Faz-tudo / pequenos reparos", "icone": "🔧", "itens": [{"nome": "Alex – Faz Tudo", "tel": "(21) 99584-2049", "wa": "5521995842049", "obs": "Instalação de prateleiras e reparos"}]},
+  {"id": "gasista", "titulo": "Gasista", "icone": "🔥", "itens": [{"nome": "Ademar Gás", "tel": "(21) 99498-0287", "wa": "5521994980287", "obs": "Indicado mais de uma vez"}]},
+  {"id": "gelo", "titulo": "Gelo (entrega)", "icone": "🧊", "itens": [{"nome": "Fornecedor de gelo", "tel": "(21) 97970-7070", "wa": "5521979707070", "obs": "Entrega rápido"}]},
+  {"id": "geladeira-maquina", "titulo": "Geladeira e máquina de lavar", "icone": "🧺", "itens": [{"nome": "Cezar", "tel": "(21) 96462-6882", "wa": "5521964626882", "obs": "Indicado por mais de um morador"}]},
+  {"id": "ginecologista", "titulo": "Médico – Ginecologista", "icone": "🩺", "itens": [{"nome": "Dra. Mariana Abreu", "tel": "(21) 99681-4129", "wa": "5521996814129", "obs": "Aceita SulAmérica"}]},
+  {"id": "lavagem-de-carro", "titulo": "Lavagem de carro", "icone": "🧽", "itens": [{"nome": "Spa Via", "tel": "(21) 98248-1862", "wa": "5521982481862", "obs": "Pertinho do condomínio"}, {"nome": "Posto Ipiranga – Av. das Américas", "obs": "Ao lado da loja da Porsche"}]},
+  {"id": "limpeza-de-pele", "titulo": "Limpeza de pele", "icone": "✨", "itens": [{"nome": "Instituto Ketlen", "tel": "(21) 99668-2510", "wa": "5521996682510", "obs": "Limpeza coreana · Centro Israelita, Barra Sul"}, {"nome": "Duda Oliveira", "tel": "(21) 99949-4010", "wa": "5521999494010", "obs": "Atende no Novo Leblon"}]},
+  {"id": "manicure", "titulo": "Manicure", "icone": "💅", "itens": [{"nome": "Cida", "tel": "(21) 97717-6487", "wa": "5521977176487", "obs": "Vai em casa"}, {"nome": "Valesca Meri", "tel": "(21) 98914-4289", "wa": "5521989144289", "obs": "No Barra World"}, {"nome": "Jade Guimarães", "tel": "(21) 97320-9313", "wa": "5521973209313", "obs": "Manicure e trancista"}]},
+  {"id": "maquiadora", "titulo": "Maquiadora", "icone": "💄", "itens": [{"nome": "Denise", "tel": "(21) 96745-5352", "wa": "5521967455352"}]},
+  {"id": "micro-ondas", "titulo": "Conserto de micro-ondas", "icone": "🔌", "itens": [{"nome": "Revolution Autorizada", "tel": "(21) 99907-0428", "wa": "5521999070428", "obs": "Assistência Brastemp"}]},
+  {"id": "oficina-mecanica", "titulo": "Oficina mecânica", "icone": "🛠️", "itens": [{"nome": "SMF Oficina de Carros", "tel": "(21) 97186-9674", "wa": "5521971869674", "obs": "Envia vídeos de cada etapa do serviço"}]},
+  {"id": "pintor", "titulo": "Pintor", "icone": "🎨", "itens": [{"nome": "Mauro", "tel": "(21) 96554-6066", "wa": "5521965546066"}]},
+  {"id": "professora-reforco", "titulo": "Aula de reforço", "icone": "📚", "itens": [{"nome": "Flávia", "tel": "(21) 99150-7619", "wa": "5521991507619", "obs": "Matemática, ensino fundamental · moradora · muito elogiada"}]},
+  {"id": "salgados", "titulo": "Salgados para festa", "icone": "🥟", "itens": [{"nome": "Julliu's Salgados", "tel": "(21) 99623-5108", "wa": "5521996235108", "obs": "Indicado por mais de um morador"}, {"nome": "Rei dos Salgados", "tel": "(21) 96761-2228", "wa": "5521967612228"}, {"nome": "Salgaderô", "tel": "(21) 99250-6906", "wa": "5521992506906"}, {"nome": "Fábrica (salgados)", "tel": "(21) 98602-7268", "wa": "5521986027268"}]},
+  {"id": "telas-de-seguranca", "titulo": "Telas de segurança", "icone": "🛡️", "itens": [{"nome": "Barra Telas", "insta": "barratellas"}, {"nome": "Milton – Protex", "tel": "(21) 99630-0194", "wa": "5521996300194"}, {"nome": "Cleyton – Prime Telas", "tel": "(21) 96462-2853", "wa": "5521964622853"}]},
+  {"id": "vidracaria", "titulo": "Vidraçaria", "icone": "🪟", "itens": [{"nome": "Via Recreio Vidro", "tel": "(21) 99966-1123", "wa": "5521999661123"}]},
+  {"id": "montador-de-moveis", "titulo": "Montador de móveis", "icone": "🪛", "itens": [{"nome": "Denilson Nunes", "tel": "(21) 96816-6010", "wa": "5521968166010", "obs": "Muito indicado pelos moradores do Barra Bali"}]},
+  {"id": "marceneiro", "titulo": "Marceneiro", "icone": "🪚", "itens": [{"nome": "Marcelo – Marceneiro Barra Bali", "tel": "(21) 96404-2922", "wa": "5521964042922", "obs": "Bastante indicado no grupo"}]},
+  {"id": "contatos-uteis", "titulo": "Contatos úteis", "icone": "📌", "itens": [{"nome": "Administração Silver e Apple", "tel": "(21) 96476-1227", "wa": "5521964761227", "obs": "E-mail: sac@silverapple.com.br"}, {"nome": "Light (falta de energia)", "tel": "(21) 99981-6059", "wa": "5521999816059", "obs": "WhatsApp para abrir protocolo"}]},
+  {"id": "pet-shop-online", "titulo": "Pet shop online", "icone": "🐶", "itens": [{"nome": "Conexão Cão", "site": "https://www.conexaocao.com.br", "insta": "conexaocao"}]}
+];
+
+const capa = document.getElementById("capa");
+const lista = document.getElementById("lista");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+
+function render(filtro){
+  const f = norm(filtro || "");
+  let capaHtml = "", listaHtml = "", total = 0;
+  CATEGORIAS.slice().sort((a,b)=>a.titulo.localeCompare(b.titulo,"pt-BR")).forEach(cat=>{
+    const itens = cat.itens.filter(p => !f || norm(cat.titulo+" "+p.nome+" "+(p.obs||"")+" "+(p.tel||"")).includes(f));
+    if(!itens.length) return;
+    total += itens.length;
+    capaHtml += `<a class="tile" href="#${cat.id}"><span class="ico">${cat.icone}</span><span><span class="t">${esc(cat.titulo)}</span><br><span class="n">${itens.length} ${itens.length>1?"indicações":"indicação"}</span></span></a>`;
+    listaHtml += `<section class="cat" id="${cat.id}"><div class="cat-head"><h3><span>${cat.icone}</span>${esc(cat.titulo)}</h3><a class="top" href="#inicio">↑ Categorias</a></div>`;
+    itens.forEach(p=>{
+      let c = "";
+      if(p.tel) c += `<span class="num">${esc(p.tel)}</span>`;
+      if(p.wa)  c += `<a class="btn wa" href="https://wa.me/${p.wa}" target="_blank" rel="noopener">WhatsApp</a>`;
+      if(p.tel) c += `<button class="btn" data-copy="${esc(p.tel)}">Copiar número</button>`;
+      if(p.site) c += `<a class="btn" href="${esc(p.site)}" target="_blank" rel="noopener">Site</a>`;
+      if(p.insta) c += `<a class="btn" href="https://instagram.com/${esc(p.insta)}" target="_blank" rel="noopener">Instagram @${esc(p.insta)}</a>`;
+      if(!c) c = `<span class="nocontact">Contato não informado — pergunte no grupo</span>`;
+      listaHtml += `<div class="pro"><div class="name">${esc(p.nome)}</div>${p.obs?`<span class="note">${esc(p.obs)}</span>`:""}<div class="contacts">${c}</div></div>`;
+    });
+    listaHtml += `</section>`;
+  });
+  capa.innerHTML = capaHtml;
+  lista.innerHTML = listaHtml;
+  document.getElementById("vazio").style.display = total ? "none" : "block";
+  document.getElementById("titulo-categorias").style.display = total ? "block" : "none";
+}
+
+document.getElementById("busca").addEventListener("input", e => render(e.target.value));
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-copy]");
+  if(!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copiado ✓"; }
+  catch { b.textContent = b.dataset.copy; }
+  setTimeout(()=>{ b.textContent = "Copiar número"; }, 1800);
+});
+
+function irParaHash(){
+  const id = location.hash.slice(1);
+  if(!id) return;
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+}
+window.addEventListener("hashchange", irParaHash);
+render("");
+irParaHash();
+</script>
+</body>
+</html>
