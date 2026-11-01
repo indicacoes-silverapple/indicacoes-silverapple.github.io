@@ -79,7 +79,7 @@
    - obs: observação curta (opcional)
    ============================================================ */
 const CATEGORIAS = [
-  {"id": "ar-condicionado", "titulo": "Ar-condicionado (residencial)", "icone": "❄️", "itens": [{"nome": "Demilson", "tel": "(21) 96499-4004", "wa": "5521964994004", "obs": "Manutenção e instalação de split"}, {"nome": "Vitor Bazani", "tel": "(21) 96760-8488", "wa": "5521967608488"}]},
+  {"id": "ar-condicionado", "titulo": "Ar-condicionado (residencial)", "icone": "❄️", "itens": [{"nome": "Demilson", "tel": "(21) 96499-4004", "wa": "5521964994004", "obs": "Manutenção e instalação de split"}, {"nome": "Vitor Bazani", "tel": "(21) 96760-8488", "wa": "5521967608488"}, {"nome": "Jorge", "tel": "(21) 96415-6225", "wa": "5521964156225"}]},
   {"id": "ar-condicionado-automotivo", "titulo": "Ar-condicionado automotivo", "icone": "🚗", "itens": [{"nome": "Luis Carlos", "tel": "(21) 98350-0923", "wa": "5521983500923", "obs": "Vai até você e conserta na garagem"}, {"nome": "André", "tel": "(21) 98601-4368", "wa": "5521986014368", "obs": "Perto do Megabox"}, {"nome": "Moysés Junior", "tel": "(21) 96422-6305", "wa": "5521964226305", "obs": "Oficina perto do condomínio"}, {"nome": "Refri Senna", "obs": "Perto do Uptown, acesso à Freguesia"}]},
   {"id": "cabeleireira", "titulo": "Cabeleireira", "icone": "💇", "itens": [{"nome": "Tamires", "tel": "(21) 96904-7059", "wa": "5521969047059", "obs": "Atende em casa · indicada várias vezes"}, {"nome": "Cris", "tel": "(21) 99197-6716", "wa": "5521991976716", "obs": "Corte e luzes · atende em casa"}, {"nome": "Natany Braga", "tel": "(21) 98416-5658", "wa": "5521984165658", "obs": "Progressiva e corte"}, {"nome": "Simone", "tel": "(21) 97018-8230", "wa": "5521970188230", "obs": "Atende em casa"}, {"nome": "Juan – Salão Barra Bali", "tel": "(21) 97983-4015", "wa": "5521979834015", "obs": "Escova progressiva · no duplex"}]},
   {"id": "cuidadora-de-gatos", "titulo": "Cuidadora de gatos", "icone": "🐈", "itens": [{"nome": "Zilah – Focinhos", "tel": "(21) 99741-2161", "wa": "5521997412161"}]},
@@ -91,7 +91,7 @@ const CATEGORIAS = [
   {"id": "faz-tudo", "titulo": "Faz-tudo / pequenos reparos", "icone": "🔧", "itens": [{"nome": "Alex – Faz Tudo", "tel": "(21) 99584-2049", "wa": "5521995842049", "obs": "Instalação de prateleiras e reparos"}]},
   {"id": "gasista", "titulo": "Gasista", "icone": "🔥", "itens": [{"nome": "Ademar Gás", "tel": "(21) 99498-0287", "wa": "5521994980287", "obs": "Indicado mais de uma vez"}]},
   {"id": "gelo", "titulo": "Gelo (entrega)", "icone": "🧊", "itens": [{"nome": "Fornecedor de gelo", "tel": "(21) 97970-7070", "wa": "5521979707070", "obs": "Entrega rápido"}]},
-  {"id": "geladeira-maquina", "titulo": "Geladeira e máquina de lavar", "icone": "🧺", "itens": [{"nome": "Cezar", "tel": "(21) 96462-6882", "wa": "5521964626882", "obs": "Indicado por mais de um morador"}]},
+  {"id": "geladeira-maquina", "titulo": "Geladeira e máquina de lavar", "icone": "🧺", "itens": [{"nome": "Cezar", "tel": "(21) 96462-6882", "wa": "5521964626882", "obs": "Indicado por mais de um morador"}, {"nome": "Técnico (nome não informado)", "tel": "(21) 99429-2521", "wa": "5521994292521"}]},
   {"id": "ginecologista", "titulo": "Médico – Ginecologista", "icone": "🩺", "itens": [{"nome": "Dra. Mariana Abreu", "tel": "(21) 99681-4129", "wa": "5521996814129", "obs": "Aceita SulAmérica"}]},
   {"id": "lavagem-de-carro", "titulo": "Lavagem de carro", "icone": "🧽", "itens": [{"nome": "Spa Via", "tel": "(21) 98248-1862", "wa": "5521982481862", "obs": "Pertinho do condomínio"}, {"nome": "Posto Ipiranga – Av. das Américas", "obs": "Ao lado da loja da Porsche"}]},
   {"id": "limpeza-de-pele", "titulo": "Limpeza de pele", "icone": "✨", "itens": [{"nome": "Instituto Ketlen", "tel": "(21) 99668-2510", "wa": "5521996682510", "obs": "Limpeza coreana · Centro Israelita, Barra Sul"}, {"nome": "Duda Oliveira", "tel": "(21) 99949-4010", "wa": "5521999494010", "obs": "Atende no Novo Leblon"}]},
@@ -104,10 +104,14 @@ const CATEGORIAS = [
   {"id": "salgados", "titulo": "Salgados para festa", "icone": "🥟", "itens": [{"nome": "Julliu's Salgados", "tel": "(21) 99623-5108", "wa": "5521996235108", "obs": "Indicado por mais de um morador"}, {"nome": "Rei dos Salgados", "tel": "(21) 96761-2228", "wa": "5521967612228"}, {"nome": "Salgaderô", "tel": "(21) 99250-6906", "wa": "5521992506906"}, {"nome": "Fábrica (salgados)", "tel": "(21) 98602-7268", "wa": "5521986027268"}]},
   {"id": "telas-de-seguranca", "titulo": "Telas de segurança", "icone": "🛡️", "itens": [{"nome": "Barra Telas", "insta": "barratellas"}, {"nome": "Milton – Protex", "tel": "(21) 99630-0194", "wa": "5521996300194"}, {"nome": "Cleyton – Prime Telas", "tel": "(21) 96462-2853", "wa": "5521964622853"}]},
   {"id": "vidracaria", "titulo": "Vidraçaria", "icone": "🪟", "itens": [{"nome": "Via Recreio Vidro", "tel": "(21) 99966-1123", "wa": "5521999661123"}]},
-  {"id": "montador-de-moveis", "titulo": "Montador de móveis", "icone": "🪛", "itens": [{"nome": "Denilson Nunes", "tel": "(21) 96816-6010", "wa": "5521968166010", "obs": "Muito indicado pelos moradores do Barra Bali"}]},
-  {"id": "marceneiro", "titulo": "Marceneiro", "icone": "🪚", "itens": [{"nome": "Marcelo – Marceneiro Barra Bali", "tel": "(21) 96404-2922", "wa": "5521964042922", "obs": "Bastante indicado no grupo"}]},
-  {"id": "contatos-uteis", "titulo": "Contatos úteis", "icone": "📌", "itens": [{"nome": "Administração Silver e Apple", "tel": "(21) 96476-1227", "wa": "5521964761227", "obs": "E-mail: sac@silverapple.com.br"}, {"nome": "Light (falta de energia)", "tel": "(21) 99981-6059", "wa": "5521999816059", "obs": "WhatsApp para abrir protocolo"}]},
-  {"id": "pet-shop-online", "titulo": "Pet shop online", "icone": "🐶", "itens": [{"nome": "Conexão Cão", "site": "https://www.conexaocao.com.br", "insta": "conexaocao"}]}
+  {"id": "montador-de-moveis", "titulo": "Montador de móveis", "icone": "🪛", "itens": [{"nome": "Denilson Nunes", "tel": "(21) 96816-6010", "wa": "5521968166010", "obs": "Muito indicado pelos moradores do Barra Bali"}, {"nome": "Sérgio", "tel": "(21) 98733-0349", "wa": "5521987330349"}]},
+  {"id": "marceneiro", "titulo": "Marceneiro", "icone": "🪚", "itens": [{"nome": "Marcelo – Marceneiro Barra Bali", "tel": "(21) 96404-2922", "wa": "5521964042922", "obs": "Bastante indicado no grupo"}, {"nome": "Sandro", "tel": "(21) 99945-1823", "wa": "5521999451823"}]},
+  {"id": "contatos-uteis", "titulo": "Contatos úteis", "icone": "📌", "itens": [{"nome": "Administração Silver e Apple", "tel": "(21) 96476-1227", "wa": "5521964761227", "obs": "E-mail: sac@silverapple.com.br"}, {"nome": "Light (falta de energia)", "tel": "(21) 99981-6059", "wa": "5521999816059", "obs": "WhatsApp para abrir protocolo"}, {"nome": "Detran-RJ", "tel": "(21) 3460-1746", "obs": "Telefone fixo"}, {"nome": "Sacolão Volante", "tel": "(21) 98445-1905", "wa": "5521984451905"}]},
+  {"id": "pet-shop-online", "titulo": "Pet shop online", "icone": "🐶", "itens": [{"nome": "Conexão Cão", "site": "https://www.conexaocao.com.br", "insta": "conexaocao"}]},
+  {"id": "adestramento", "titulo": "Adestramento de cães", "icone": "🐕", "itens": [{"nome": "Débora Roggia", "tel": "(21) 99972-2888", "wa": "5521999722888"}]},
+  {"id": "filtro-de-agua", "titulo": "Filtro de água", "icone": "💧", "itens": [{"nome": "Europa – Filtros", "tel": "(21) 2439-1718", "obs": "Telefone fixo"}]},
+  {"id": "hotel-pet-friendly", "titulo": "Hotel pet friendly", "icone": "🏨", "itens": [{"nome": "Cantinho do Céu", "tel": "(24) 9994-0845", "obs": "Número como foi indicado; confirme antes de ligar"}]},
+  {"id": "impressao-3d", "titulo": "Produtos em impressão 3D", "icone": "🖨️", "itens": [{"nome": "Yuri", "tel": "(21) 99283-6069", "wa": "5521992836069"}]}
 ];
 
 const capa = document.getElementById("capa");
@@ -119,7 +123,7 @@ function render(filtro){
   const f = norm(filtro || "");
   let capaHtml = "", listaHtml = "", total = 0;
   CATEGORIAS.slice().sort((a,b)=>a.titulo.localeCompare(b.titulo,"pt-BR")).forEach(cat=>{
-    const itens = cat.itens.filter(p => !f || norm(cat.titulo+" "+p.nome+" "+(p.obs||"")+" "+(p.tel||"")).includes(f));
+    const itens = cat.itens.filter(p => !f || (" "+norm(cat.titulo+" "+p.nome+" "+(p.obs||"")+" "+(p.tel||"")).replace(/[^a-z0-9]+/g," ")).includes(" "+f.replace(/[^a-z0-9]+/g," ").trim()));
     if(!itens.length) return;
     total += itens.length;
     capaHtml += `<a class="tile" href="#${cat.id}"><span class="ico">${cat.icone}</span><span><span class="t">${esc(cat.titulo)}</span><br><span class="n">${itens.length} ${itens.length>1?"indicações":"indicação"}</span></span></a>`;
